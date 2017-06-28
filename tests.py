@@ -6,7 +6,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-PHANTOMJS_PATH = "/usr/local/lib/node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs"
 CREATE_USER_URL = 'http://atomicboard.devman.org/create_test_user/'
 MAIN_PAGE_URL = 'http://atomicboard.devman.org/'
 JQUERY_URL = "http://code.jquery.com/jquery-1.11.2.min.js"
@@ -17,7 +16,7 @@ TEST_STRING = 'test-test-test'
 class AtomicTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.PhantomJS(PHANTOMJS_PATH)
+        self.driver = webdriver.PhantomJS()
         self.driver.get(CREATE_USER_URL)
         self.driver.find_element_by_xpath('/html/body/form/button').click()
         WebDriverWait(self.driver, TIMEOUT).until(
